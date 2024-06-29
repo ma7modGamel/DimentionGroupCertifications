@@ -1,0 +1,26 @@
+[12-Dec-2021 12:05:44 UTC] PHP Warning:  Uncaught ErrorException: require(/home/certificatedimen/public_html/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): failed to open stream: No such file or directory in /home/certificatedimen/public_html/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/certificatedimen/public_html/vendor/composer/autoload_real.php(71): Composer\Util\ErrorHandler::handle(2, 'require(/home/c...', '/home/certifica...', 71, Array)
+#1 /home/certificatedimen/public_html/vendor/composer/autoload_real.php(71): require()
+#2 /home/certificatedimen/public_html/vendor/composer/autoload_real.php(61): composerRequire21ac5e783e63192c12c618dba95b4f79('6124b4c8570aa39...', '/home/certifica...')
+#3 /home/certificatedimen/public_html/vendor/autoload.php(7): ComposerAutoloaderInit21ac5e783e63192c12c618dba95b4f79::getLoader()
+#4 /home/certificatedimen/public_html/vendor/laravel/framework/src/Illuminate/Foundation/ComposerScripts.php(43): require_once('/home/certifica...')
+#5 phar:///opt/cpanel/composer/bin/composer/src/ in /home/certificatedimen/public_html/vendor/composer/autoload_real.php on line 71
+[12-Dec-2021 12:05:44 UTC] PHP Fatal error:  composerRequire21ac5e783e63192c12c618dba95b4f79(): Failed opening required '/home/certificatedimen/public_html/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/certificatedimen/public_html/vendor/composer/autoload_real.php on line 71
+[12-Dec-2021 12:06:03 UTC] PHP Warning:  Uncaught ErrorException: require(/home/certificatedimen/public_html/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php): failed to open stream: No such file or directory in /home/certificatedimen/public_html/vendor/composer/autoload_real.php:71
+Stack trace:
+#0 /home/certificatedimen/public_html/vendor/composer/autoload_real.php(71): Composer\Util\ErrorHandler::handle(2, 'require(/home/c...', '/home/certifica...', 71, Array)
+#1 /home/certificatedimen/public_html/vendor/composer/autoload_real.php(71): require()
+#2 /home/certificatedimen/public_html/vendor/composer/autoload_real.php(61): composerRequire21ac5e783e63192c12c618dba95b4f79('6124b4c8570aa39...', '/home/certifica...')
+#3 /home/certificatedimen/public_html/vendor/autoload.php(7): ComposerAutoloaderInit21ac5e783e63192c12c618dba95b4f79::getLoader()
+#4 /home/certificatedimen/public_html/vendor/laravel/framework/src/Illuminate/Foundation/ComposerScripts.php(43): require_once('/home/certifica...')
+#5 phar:///opt/cpanel/composer/bin/composer/src/ in /home/certificatedimen/public_html/vendor/composer/autoload_real.php on line 71
+[12-Dec-2021 12:06:03 UTC] PHP Fatal error:  composerRequire21ac5e783e63192c12c618dba95b4f79(): Failed opening required '/home/certificatedimen/public_html/vendor/composer/../myclabs/deep-copy/src/DeepCopy/deep_copy.php' (include_path='.:/opt/cpanel/ea-php73/root/usr/share/pear') in /home/certificatedimen/public_html/vendor/composer/autoload_real.php on line 71
+[12-Dec-2021 13:31:26 UTC] PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) in /home/certificatedimen/public_html/vendor/symfony/string/UnicodeString.php on line 44
+[12-Dec-2021 13:31:26 UTC] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[12-Dec-2021 13:31:26 UTC] PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) in /home/certificatedimen/public_html/vendor/symfony/string/UnicodeString.php on line 44
+[12-Dec-2021 13:31:26 UTC] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[12-Dec-2021 13:31:43 UTC] PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) in /home/certificatedimen/public_html/vendor/symfony/string/UnicodeString.php on line 44
+[12-Dec-2021 13:31:43 UTC] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0
+[12-Dec-2021 13:31:43 UTC] PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) in /home/certificatedimen/public_html/vendor/symfony/string/UnicodeString.php on line 44
+[12-Dec-2021 13:31:43 UTC] PHP Fatal error:  Exception thrown without a stack frame in Unknown on line 0

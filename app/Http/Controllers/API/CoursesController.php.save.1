@@ -1,0 +1,110 @@
+<?php
+namespace App\Http\Controllers\API;
+use Illuminate\Http\Request;
+use App\Http\Controllers\API\BaseController as BaseController;
+use App\Models\Course;
+use App\Models\TraineeCourse;
+use App\Models\User;
+use Validator;
+use App\Http\Resources\TraineeCourse as TraineeCourseResource;
+use App\Http\Resources\Course as CourseResource; 
+use Illuminate\Support\Str;
+class CoursesController extends BaseController
+{
+    public function index(Request $request)
+    {
+	$courses = Course::all();
+        return $this->sendResponse(CourseResource::collection($courses), 'Coursess retrieved successfully.');
+    }
+     public function getTraineeCourse(Request $request)
+    	{
+         $course_id  = $request->get('course_id');
+        $traineecourses = User::join('courses_trainee', 'users.id', '=', 'courses_trainee.trainee_id')->where('courses_trainee.course_id', '=', $course_id)->whereNotNull('courses_trainee.course_id')->get();
+        return $this->sendResponse(new TraineeCourseResource($traineecourses), 'Trainee of the Course retrieved successfully.');
+	}
+    public function getAll(Request $request)
+    {
+	$cat_id  = $request->get('cat_id');
+        $courses = Course::where('cat_id', '=', $cat_id)->whereNotNull('cat_id')->get();
+        return $this->sendResponse(new CourseResource($courses), 'Courses retrieved successfully.');
+	}
+
+ public function store(Request $request)
+    {
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'name' => 'required',
+            'detail' => 'required'
+        ]);
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+        $course = Course::create($input);CourseTrainee.php
+        return $this->sendResponse(new CourseResource($course), 'Course created successfully.');
+    }
+
+public function storeTraineeCourse(Request $request)
+	 {
+		$course_id  = $request->get('course_id');
+		$data = $request->get('data');
+        	//$inpu
+		foreach ($data as $user) {
+			$password = bcrypt('123456');
+			$email = $user['email'];
+                        $full_name = $user['full_name'];
+                        $national_id = $user['national_id'];
+                        $mobile = $user['mobile'];
+		$userResult = User::where('national_id', '=', $national_id)->whereNotNull('cat_id')->where('national_id', '!=', 0)->whereNotNull('national_id')->get();
+		if (empty($userResult)) {
+		$userinsert = User::create([
+		 'full_name' => $full_name,
+		'email' => $email,'
+		'mobile' => $mobile,
+		'password' => $password
+		]);
+		$lastInsertedID =  $userinsert->Id();
+		if(!empty($lastInsertedID)){
+		$randomString = Str::random(30);
+		$order = TraineeCourse::create([
+                 'course_id' => $course_id,
+                 'trainee_id' => $lastInsertedID,
+                 'cert_code' => $randomString,
+                   ]);
+		}
+                 }
+ 		}
+		$randomString = Str::random(30);
+
+        $course = Course::create($input);
+        return $this->sendResponse(new CourseResource($course), 'Course created successfully.');
+    }
+
+    public function show($cat_id)
+    {
+        $course = Course::find($cat_id);
+        if (is_null($course)) {	
+            return $this->sendError('Course not found.');
+        }
+        return $this->sendResponse(new CourseResource($course), 'Course retrieved successfully.');
+    }
+    public function update(Request $request, Course $course)
+    {
+        $input = $request->all();
+        $validator = Validator::make($input, [
+            'name' => 'required',
+            'detail' => 'required'
+        ]);
+        if($validator->fails()){
+            return $this->sendError('Validation Error.', $validator->errors());
+        }
+        $course->name = $input['name'];
+        $course->detail = $input['detail'];
+        $course->save();
+        return $this->sendResponse(new CourseResource($course), 'Course updated successfully.');
+    }
+    public function destroy(Course $category)
+    {
+        $category->delete();
+        return $this->sendResponse([], 'Course deleted successfully.');
+    }
+}
