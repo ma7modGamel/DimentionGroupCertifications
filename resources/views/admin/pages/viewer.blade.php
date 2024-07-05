@@ -80,7 +80,9 @@ list($r, $g, $b) = sscanf($hex, "#%02x%02x%02x");
     
         <div id="container">
      <img  class="qr" style=" z-index: 9999999999999999;" src="data:image/svg+xml;base64,{!! base64_encode(  QrCode::size($qr_size)->color($r, $g, $b)->backgroundColor(255, 0, 0, 0)->generate('https://certificate.dimensionsgroup.sa') ) !!}" style="position: absolute;right: {{$qr_x}}px;top:  {{$qr_y}}px;" />
-<img class="back_image" src="{{'/public/images/demo-new.jpg'}}" alt="">
+<!-- <img class="back_image" src="{{'/public/images/demo-new.jpg'}}" alt=""> -->
+<img class="back_image" src="{{'/images/demo-new.jpg'}}" alt="">
+
 </div>
 
 

@@ -17,10 +17,12 @@ class AuthAdmin extends Middleware
      */
     public function  handle(Request $request, Closure $next)
     {
+        
         if(!Auth::check()){
+        
             return redirect('/admin-login');
 
-        } 
+    } 
            return $next($request);
     }
 }
